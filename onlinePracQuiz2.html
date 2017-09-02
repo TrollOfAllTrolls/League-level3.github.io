@@ -1,0 +1,432 @@
+What is an algorithm?
+#*#
+An efficient way of organizing data in a computer program.
+A type of data structure.
+A sequence of steps to accomplish a task.
+Another word for artificial intelligence.
+A style of latin music.
+
+2
+_________________________
+
+Which of the following is NOT a true statement?
+#*#
+There are more than three data structures in Java.
+Java is the only programming language that uses data structures.
+A Matrix is a type of data structure.
+Data structures can improve the readability of code
+Data strucutres can improve the efficiency of code.
+
+1
+____________________________________________
+
+If a programmer wanted to store each character of a word as a separate entry in a Stack, which Stack declaration is best?
+#*#
+Stack<char> characterStack = new Stack<char>(); 
+Stack<Integer> characterStack = new Stack<Integer>();
+Stack<Object> characterStack = new Stack<Object>();
+Stack<int> characterStack = new Stack<int>();
+Stack<Character> characterStack = new Stack<Character>();
+
+4
+______________________________________________
+
+What is the value of answer after the folllowing code executes?
+
+HashMap<Integer, String> map = new HashMap<Integer, String>();
+map.put(100, "AAA");
+map.put(001, "AAB");
+map.put(102, "AAC");
+
+String answer = "";
+for(Integer i : map.keyset()){
+	answer += map.get(i);
+}
+#*#
+AAA
+AAAAABAAC
+AAC
+ABC
+AAAAAAAAA
+
+1
+________________________________________________
+
+Which statement best applies to a Stack?
+#*#
+first in first out
+inside out
+last in first out
+once in never out
+last in last out
+
+2
+_________________________________________
+
+What is wrong with the following code?
+
+ArrayList<Integer> intList = new ArrayList<Integer>();
+
+for(int i = 0; i < 10; i++){
+	intlist.add(i);
+}
+
+for(Integer i : intList){
+	intList.remove(i);
+}
+#*#
+intList is an invalid object name.
+Nothing is added to intList.
+All references to Integer should be replaced with int.
+The size of a list cannot change inside a for-each loop.
+Nothing is wrong with the code.
+
+3
+_____________________________________________
+
+What is the value of x after the following code executes?
+
+ArrayList<Integer> nums = new ArrayList<Integer>();
+
+nums.add(5);
+nums.add(6);
+
+int temp = nums.get(0);
+nums.set(0, nums.get(1);
+nums.set(1, temp);
+
+int x = nums.get(0);
+#*#
+0
+1
+5
+6
+11
+
+3
+_______________________________________________
+
+Which method will make the JUnit Test Pass?
+
+@Test
+public void testStuff(){
+	assertEquals('C', getFirstChar("Conglomerate"));
+}
+#*#
+public char getFirstChar(String word){ return word.charAt(0); }
+public void getFirstChar(){ return 'C'; }
+public String getFirstChar(String word){ return word.charAt(0); }
+public char getFirstChar(){ return word.charAt(0); }
+public Character getFirstChar(String word){ return word.charAt(1); }
+
+0
+________________________________________________________
+
+Given the following line of code, what should be the return type for the countChars method?
+
+assertEquals(24, countChars("here are some characters"));
+#*#
+int
+double
+char
+String
+boolean
+
+0
+____________________________________________
+
+Given the following line of code, what should be the return type for isWeatherGood method?
+
+assertFalse(isWeatherGood(Date.getTodaysDate());
+#*#
+int
+Date
+char
+String
+boolean
+
+4
+________________________________________
+
+Which method from the JUnit Test library can be used to test a method that returns void?
+#*#
+assertEquals
+assertTrue
+assertFalse
+assertVoid
+(no such method exists)
+
+4
+_______________________________________________________________________
+
+Which class can be used to write to a file?
+#*#
+File
+Writer
+FileWriter
+FileReader
+WriteToFile
+
+2
+__________________________
+
+Which method from the FileReader class can be used to close a file?
+#*#
+close
+closeFile
+discard
+exit
+(no such method exists)
+
+0
+___________________________________________________
+
+How can it be determined if a FileReader object has reached the end of a file?
+#*#
+The computer will beep.
+The read method will return -1.
+The file will no longer appear on the desktop.
+The read method will be disabled.
+It's impossible to tell.
+
+1
+_________________________________________________
+
+Which of the following is a true statement?
+#*#
+File Input/Output is not possible in Java.
+Files in Java are automatically encrypted.
+Once a file is deleted, that memory can never be recovered.
+Accessing a computer's hard-drive from a Java program can result in many errors or exceptions.
+Only Strings can be written to files.
+
+3
+____________________________________________________________
+
+What is the maximum size of a file that can be created in Java?
+#*#
+128KB
+64MB
+500GB
+It depends on the computer's available memory.
+There is no limit.
+
+3
+_______________________________________________________
+
+Which of the following is NOT a true statement?
+
+#*#
+A for loop can be used to iterate through a file's data.
+A while loop can be used to iterate through a file's data.
+Files can be modified from a Java program.
+Java does not allow appending data to an existing file.
+Java has a built-in File class.
+
+3
+
+___________________________________________________________
+
+When is a BufferedReader object perferable to FileReader object?
+#*#
+It depends on the application.
+Never.
+In cases where memory is limited.
+Always.
+In cases where computer speed is limited.
+
+0
+
+_________________________________________________________
+
+Fill in the blank.
+
+abstract class Metal{
+}
+
+public class Iron _______ Metal{
+}
+#*#
+implements
+extends
+run
+inherits
+elaborates
+
+1
+_________________________________________________________
+
+Fill in the blank.
+
+interface Flyable{
+}
+
+public class Goose _______ Flyable{
+}
+#*#
+implements
+extends
+run
+inherits
+elaborates
+
+0
+_______________________________________________
+
+What is the maximum number of interfaces that can be implemented by a class?
+#*#
+0
+1
+256
+1028
+There is no limit.
+
+4
+______________________________
+
+What is the maximum number of abstract classes that can be inherited by a class?
+#*#
+0
+1
+256
+1028
+There is no limit.
+
+1
+_____________________________________________
+
+Which line of the following code will cause an error?
+
+1:	abstract class Reptile{}
+2:	class Lizard extends Reptile{}
+3:	public class Terrarium{
+4:		public void addReptile(Reptile r){
+5:			//code
+6:		}
+7:	
+8:		public static void main(String[] args){
+9:			Lizard larry = new Lizzard();
+10:			Reptile ralph = new Lizzard();
+11:			Reptile rich = new Reptile();
+12:			
+13:			Terrarium tank = new Terrarium();
+14:			tank.addReptile(larry);
+15:		}
+16:	}
+
+
+#*#
+9
+10
+11
+13
+14
+
+2
+__________________________________________________
+
+Which of the following is a true statement?
+#*#
+A class can extend one abstract class and one concrete class.
+A class can only implement one interface.
+An interface cannot be instantiated.
+An interface must have at least one abstract method.
+An abstract class must have at least one abstract method.
+
+2
+___________________________________________________________
+
+What is the purpose of using Java's Thread class?
+#*#
+To stitch together multiple sections of code.
+To automatically optimize a Java program.
+To iterate through the contents of a file.
+To run multiple sections of code simultaneously.
+There is no purpose.
+
+3
+_________________________________________
+
+Java's Runnable type is a(n) ________.
+#*#
+class
+interface
+method
+variable
+abstract class
+
+1
+_______________________________________________
+
+What is the value of x after the following code executes?
+
+static int x = 0;
+public static void main(String[] args) {	
+	Thread t1 = new Thread(new Runnable(){
+		@Override
+		public void run() {
+			for(int i = 0; i < 5; i++){
+				x += i;
+			}	
+		}
+	});
+	
+	t1.start();
+	try {
+		t1.join();
+	} catch (InterruptedException e) {
+		e.printStackTrace();
+	}
+}
+
+#*#
+0
+10
+25
+50
+It's impossible to know the value of x from the given code.
+
+1
+_________________________________________________
+
+Which is a valid constructor for Java's Thread class?
+#*#
+Thread(Runnable r)
+Thread(Runnable, int i)
+Thread(char c)
+Thread(Runnable r, String s, int i)
+Thread(String s, Runnabler)
+
+0
+______________________________
+
+Given the following code, which line can go in the main method to successfully start a Thread?
+
+class Cookie implements Runnable 
+{ 
+    public static void main(String args[]) 
+    {
+        //code goes here
+    } 
+    public void run() {} 
+}
+#*#
+Thread t1 = new Thread(Cookie);
+Thread t1 = new Thread(Cookie); t.start();
+Cookie oreo = new Cookie(); Thread t1 = new Thread(oreo); t1.start();
+Thread t1 = new Thread(); t1.run();
+Thread.run();
+
+2
+______________________________________________________
+
+Which line will stop the execution of a Thread?
+#*#
+wait()
+pause()
+notifyAll()
+exit()
+synchronize()
+
+0
+_____________________________________
