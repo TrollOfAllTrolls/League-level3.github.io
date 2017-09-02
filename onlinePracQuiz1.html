@@ -225,41 +225,47 @@ questions[21].choices[2] = "sleep";
 questions[21].choices[3] = "execute";
 questions[21].choices[4] = "join";
 questions[21].correctAnswer = 4; 
-    questions[22] = new Question();
-questions[22].question = "Which thread will finish running its code first?<br><br>"+
+    questions[0] = new Question();
+questions[0].question = "Which thread will finish running its code first?<br><br>"+
 "Thread t1 = new Thread(new Runnable(){<br>"+
-	"\tfor(int i = 0; i < 1000000; i++){<br>"+
-		"\t\tSystem.out.println(i);<br>"+
-	"\t}<br>"+
+  "\tpublic void run(){}<br>"+
+	"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
+		"\t\t\tSystem.out.println(i);<br>"+
+	"\t\t}<br>"+
+  "\t}<br>"+
 "});<br><br>"+
 "Thread t2 = new Thread(new Runnnable(){<br>"+
-	"\tfor(int i = 0; i < 1000000; i++){<br>"+
-		"\t\tSystem.out.println(i);<br>"+
-	"\t}<br>"+
+  "\tpublic void run(){<br>"+
+	"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
+		"\t\t\tSystem.out.println(i);<br>"+
+	"\t\t}<br>"+
+  "\t}<br>"+
 "});<br><br>"+
 "t1.start();<br>"+
 "t2.start();"
-questions[22].choices[0] = "t1 will finish first.";
-questions[22].choices[1] = "t2 will finish first.";
-questions[22].choices[2] = "They will finish at the same time.";
-questions[22].choices[3] = "It is impossible to know which thread will finish first.";
-questions[22].choices[4] = "Neither thread will finish because an error will occur.";
-questions[22].correctAnswer = 3;
-questions[23] = new Question();
-questions[23].question = "How many threads (including the main thread) are running simultaneously at the end of the following code segment?<br><br>"+
+questions[0].choices[0] = "t1 will finish first.";
+questions[0].choices[1] = "t2 will finish first.";
+questions[0].choices[2] = "They will finish at the same time.";
+questions[0].choices[3] = "It is impossible to know which thread will finish first.";
+questions[0].choices[4] = "Neither thread will finish because an error will occur.";
+questions[0].correctAnswer = 3;
+questions[0] = new Question();
+questions[0].question = "How many threads (including the main thread) are running simultaneously at the end of the following code segment?<br><br>"+
 "for(int i = 0; i < 10; i++){<br>"+
 	"\tnew Thread(new Runnnable(){<br>"+
-		"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
-			"\t\t\tSystem.out.println(i);<br>"+
-		"\t\t}<br>"+
+  "\t\tpublic void run(){<br>" +
+		"\t\t\tfor(int i = 0; i < 1000000; i++){<br>"+
+			"\t\t\t\tSystem.out.println(i);<br>"+
+		"\t\t\t}<br>"+
+  "\t\t}<br>"+
 	"\t}).start();<br>"+
 "}";
-questions[23].choices[0] = "9";
-questions[23].choices[1] = "10";
-questions[23].choices[2] = "11";
-questions[23].choices[3] = "0";
-questions[23].choices[4] = "1,000,000";
-questions[23].correctAnswer = 2;  
+questions[0].choices[0] = "9";
+questions[0].choices[1] = "10";
+questions[0].choices[2] = "11";
+questions[0].choices[3] = "0";
+questions[0].choices[4] = "1,000,000";
+questions[0].correctAnswer = 2;  
 questions[24] = new Question();
 questions[24].question = "Which line of code properly creates and initializes a new Thread object?";
 questions[24].choices[0] = "Thread&ltString> myThread = new Thread&ltString>();";
