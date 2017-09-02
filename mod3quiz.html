@@ -2,11 +2,9 @@
   <h1 align="center">QUIZ</h1>
 </head>
 
-<body onload="startup()" style="background-color:lightblue">
-  <pre><code>
-  <div id="docBody" style="font-size:22px;">
-    
-</div>
+<body onload="startup()" style="background-color:#bbccdd;font-weight:bold;font-size:22px;">
+  <pre style="white-space:pre-wrap;"><code>
+  <div id="docBody"style="overflow:visible;"></div>
 </code></pre>
 </body>
 
@@ -69,7 +67,6 @@ questions[2].choices[4] = "The code should compile just fine.";
 questions[2].correctAnswer = 2; 
 questions[3] = new Question();
 questions[3].question = "Why will not following code fail to compile?<br><br>"+
-
 "abstract class Block{<br>"+
 "}<br><br>"+
 "public class House{<br>"+
@@ -77,7 +74,6 @@ questions[3].question = "Why will not following code fail to compile?<br><br>"+
 		"\t\tBlock b = new Block();<br>"+
 	"\t}<br>"+
 "}<br>"
-
 questions[3].choices[0] = "Block can not be instantiated.";
 questions[3].choices[1] = "The Block constructor needs a parameter.";
 questions[3].choices[2] = "The Block class needs at least one method.";
@@ -87,7 +83,6 @@ questions[3].correctAnswer = 0;
     
 questions[4] = new Question();
 questions[4].question = "Why will not following code fail to compile?<br><br>"+
-
 "abstract class Building{<br>"+
   "\t//code<br>"+
 "}<br><br>"+
@@ -99,13 +94,10 @@ questions[4].question = "Why will not following code fail to compile?<br><br>"+
 		"\t\tBuilding eiffelTower = new Tower();<br>"+
 		"\t\tnew BuildingBuilder().constructBuilding(eiffelTower);<br>"+
 	"\t}<br><br>"+
-
 	"\tpublic constructBuilding(Building b){<br>"+
 	  "\t\t//some code<br>"+ 
 	"\t}<br>"+
 "}";
-
-
 questions[4].choices[0] = "Block can not be instantiated.";
 questions[4].choices[1] = "The Block constructor needs a parameter.";
 questions[4].choices[2] = "The Block class needs at least one method.";
@@ -115,8 +107,6 @@ questions[4].correctAnswer = 4;
     
     questions[5] = new Question();
 questions[5].question = "Which of the following is NOT a true statement?";
-
-
 questions[5].choices[0] = "Interfaces can only have abstract methods.";
 questions[5].choices[1] = "Abstract classes can have non-abstract methods.";
 questions[5].choices[2] = "A class can only extend one abstract class.";
@@ -128,7 +118,7 @@ questions[5].correctAnswer = 3;
   }
   
   function setDivText(q){
-    body.innerHTML += currentQuestion + 1 + ". ";
+    body.innerHTML += currentQuestion + 1 + ".<br>";
     body.innerHTML += q.question + "<br><br><hr size=\"1\">";
     
     if(q.choices.length == 0){
@@ -205,7 +195,7 @@ questions[5].correctAnswer = 3;
      		q.userAnswer = document.querySelector('input[name="answer"]:checked').id;
         return true;
       }catch(err){
-        alert("Please make a choice. You can come back and change it later.");
+        alert("Make a choice. You can come back and change it later.");
         return false;
       }
     }else{
@@ -231,6 +221,10 @@ questions[5].correctAnswer = 3;
     return total;
   }
   
+  function reloadPage(){
+    location = location;
+  }
+  
   function submit(){
     setUserAnswer();
     
@@ -240,9 +234,9 @@ questions[5].correctAnswer = 3;
         body.innerHTML += i + 1 + ". ";
         body.innerHTML += questions[i].question + "<br><br>";
         body.innerHTML += "Your Answer: <br>";
-        body.innerHTML += convertChar(questions[i].userAnswer) + "<br>";
+        body.innerHTML += questions[i].choices[questions[i].userAnswer] + "<br>";
         body.innerHTML += "Correct Answer: <br>";
-        body.innerHTML += convertChar(questions[i].correctAnswer) + "<br>";
+        body.innerHTML += questions[i].choices[questions[i].correctAnswer] + "<br>";
         body.innerHTML += "<hr size=\"3\">";
       }else{
         body.innerHTML += i + 1 + ". ";
@@ -254,5 +248,6 @@ questions[5].correctAnswer = 3;
         body.innerHTML += "<hr size=\"3\">";
       }
     }
+            body.innerHTML += "<button onclick=\"reloadPage()\">START OVER</button>";
   }
 </script>
