@@ -353,73 +353,7 @@ questions[29].choices[2] = "11";
 questions[29].choices[3] = "0";
 questions[29].choices[4] = "1,000,000";
 questions[29].correctAnswer = 2;  
-questions[30] = new Question();
-questions[30].question = "Which line of code properly creates and initializes a new Thread object?";
-questions[30].choices[0] = "Thread&ltString> myThread = new Thread&ltString>();";
-questions[30].choices[1] = "Thread myThread;";
-questions[30].choices[2] = "Thread myThread = new Thread();";
-questions[30].choices[3] = "Thread myThread = new Thread(new Runnable());";
-questions[30].choices[4] = "Thread myThread = new Runnable();";
-questions[30].correctAnswer = 2;
-questions[31] = new Question();
-questions[31].question = "What method of the Thread class allows a thread to begin running its code?";
-questions[31].choices[0] = "begin";
-questions[31].choices[1] = "start";
-questions[31].choices[2] = "stop";
-questions[31].choices[3] = "run";
-questions[31].choices[4] = "startThread";
-questions[31].correctAnswer = 1;
-questions[32] = new Question();
-questions[32].question = "Which method from the Runnable interface must be overridden?";
-questions[32].choices[0] = "run";
-questions[32].choices[1] = "start";
-questions[32].choices[2] = "override";
-questions[32].choices[3] = "execute";
-questions[32].choices[4] = "runnable";
-questions[32].correctAnswer = 0;
-questions[33] = new Question();
-questions[33].question = "What method allows one thread to wait for the completion of another thread?";
-questions[33].choices[0] = "wait";
-questions[33].choices[1] = "pause";
-questions[33].choices[2] = "sleep";
-questions[33].choices[3] = "execute";
-questions[33].choices[4] = "join";
-questions[33].correctAnswer = 4; 
-    questions[34] = new Question();
-questions[34].question = "Which thread will finish running its code first?<br><br>"+
-"Thread t1 = new Thread(new Runnable(){<br>"+
-	"\tfor(int i = 0; i < 1000000; i++){<br>"+
-		"\t\tSystem.out.println(i);<br>"+
-	"\t}<br>"+
-"});<br><br>"+
-"Thread t2 = new Thread(new Runnnable(){<br>"+
-	"\tfor(int i = 0; i < 1000000; i++){<br>"+
-		"\t\tSystem.out.println(i);<br>"+
-	"\t}<br>"+
-"});<br><br>"+
-"t1.start();<br>"+
-"t2.start();"
-questions[34].choices[0] = "t1 will finish first.";
-questions[34].choices[1] = "t2 will finish first.";
-questions[34].choices[2] = "They will finish at the same time.";
-questions[34].choices[3] = "It is impossible to know which thread will finish first.";
-questions[34].choices[4] = "Neither thread will finish because an error will occur.";
-questions[34].correctAnswer = 3;
-questions[35] = new Question();
-questions[35].question = "How many threads (including the main thread) are running simultaneously at the end of the following code segment?<br><br>"+
-"for(int i = 0; i < 10; i++){<br>"+
-	"\tnew Thread(new Runnnable(){<br>"+
-		"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
-			"\t\t\tSystem.out.println(i);<br>"+
-		"\t\t}<br>"+
-	"\t}).start();<br>"+
-"}";
-questions[35].choices[0] = "9";
-questions[35].choices[1] = "10";
-questions[35].choices[2] = "11";
-questions[35].choices[3] = "0";
-questions[35].choices[4] = "1,000,000";
-questions[35].correctAnswer = 2;  
+
     setDivText(questions[0]);
     setButtons(questions[0]);
   }
