@@ -192,81 +192,95 @@ questions[17].choices[1] = "1";
 questions[17].choices[2] = "it depends on the computer running the program";
 questions[17].choices[3] = "1,000,000,000";
 questions[17].choices[4] = "it depends on the computer's internet speed";
-questions[17].correctAnswer = 2;    
-    questions[18] = new Question();
-questions[18].question = "Which line of code properly creates and initializes a new Thread object?";
-questions[18].choices[0] = "Thread&ltString> myThread = new Thread&ltString>();";
-questions[18].choices[1] = "Thread myThread;";
-questions[18].choices[2] = "Thread myThread = new Thread();";
-questions[18].choices[3] = "Thread myThread = new Thread(new Runnable());";
-questions[18].choices[4] = "Thread myThread = new Runnable();";
-questions[18].correctAnswer = 2;
+questions[17].correctAnswer = 2;  
+	  
+	  questions[0] = new Question();
+questions[18].question = "Fill in the blank.<br><br>"+
+"abstract class Shape{<br>"+
+"}<br><br>"+
+"public class Square _______ Shape{<br>"+
+"}<br>";
+questions[18].choices[0] = "implements";
+questions[18].choices[1] = "extends";
+questions[18].choices[2] = "run";
+questions[18].choices[3] = "inherits";
+questions[18].choices[4] = "elaborates";
+questions[18].correctAnswer = 1;
 questions[19] = new Question();
-questions[19].question = "What method of the Thread class allows a thread to begin running its code?";
-questions[19].choices[0] = "begin";
-questions[19].choices[1] = "start";
-questions[19].choices[2] = "stop";
-questions[19].choices[3] = "run";
-questions[19].choices[4] = "startThread";
-questions[19].correctAnswer = 1;
+questions[19].question = "Fill in the blank.<br><br>"+
+"interface Clickable{<br>"+
+"}<br><br>"+
+"public class Button _______ Clickable{<br>"+
+"}<br>";
+questions[19].choices[0] = "implements";
+questions[19].choices[1] = "extends";
+questions[19].choices[2] = "run";
+questions[19].choices[3] = "inherits";
+questions[19].choices[4] = "elaborates";
+questions[19].correctAnswer = 0;
 questions[20] = new Question();
-questions[20].question = "Which method from the Runnable interface must be overridden?";
-questions[20].choices[0] = "run";
-questions[20].choices[1] = "start";
-questions[20].choices[2] = "override";
-questions[20].choices[3] = "execute";
-questions[20].choices[4] = "runnable";
-questions[20].correctAnswer = 0;
+questions[20].question = "Why will the following code fail to compile?<br><br>"+
+"interface ActionItem{<br>"+
+"\tpublic void performAction();<br>"+
+"}<br><br>"+
+"public class Junction implements ActionItem{<br>"+
+"}<br>";
+questions[20].choices[0] = "\"implements\" should be changed to \"extends\".";
+questions[20].choices[1] = "ActionItem must define the performAction method.";
+questions[20].choices[2] = "Junction must define the performAction method.";
+questions[20].choices[3] = "A third data structure is needed to link Junction with ActionItem.";
+questions[20].choices[4] = "The code should compile just fine.";
+questions[20].correctAnswer = 2; 
 questions[21] = new Question();
-questions[21].question = "What method allows one thread to wait for the completion of another thread?";
-questions[21].choices[0] = "wait";
-questions[21].choices[1] = "pause";
-questions[21].choices[2] = "sleep";
-questions[21].choices[3] = "execute";
-questions[21].choices[4] = "join";
-questions[21].correctAnswer = 4; 
-    questions[22] = new Question();
-questions[22].question = "Which thread will finish running its code first?<br><br>"+
-"Thread t1 = new Thread(new Runnable(){<br>"+
-  "\tpublic void run(){}<br>"+
-	"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
-		"\t\t\tSystem.out.println(i);<br>"+
-	"\t\t}<br>"+
-  "\t}<br>"+
-"});<br><br>"+
-"Thread t2 = new Thread(new Runnnable(){<br>"+
-  "\tpublic void run(){<br>"+
-	"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
-		"\t\t\tSystem.out.println(i);<br>"+
-	"\t\t}<br>"+
-  "\t}<br>"+
-"});<br><br>"+
-"t1.start();<br>"+
-"t2.start();"
-questions[22].choices[0] = "t1 will finish first.";
-questions[22].choices[1] = "t2 will finish first.";
-questions[22].choices[2] = "They will finish at the same time.";
-questions[22].choices[3] = "It is impossible to know which thread will finish first.";
-questions[22].choices[4] = "Neither thread will finish because an error will occur.";
-questions[22].correctAnswer = 3;
-questions[23] = new Question();
-questions[23].question = "How many threads (including the main thread) are running simultaneously at the end of the following code segment?<br><br>"+
-"for(int i = 0; i < 10; i++){<br>"+
-	"\tnew Thread(new Runnnable(){<br>"+
-  "\t\tpublic void run(){<br>" +
-		"\t\t\tfor(int i = 0; i < 1000000; i++){<br>"+
-			"\t\t\t\tSystem.out.println(i);<br>"+
-		"\t\t\t}<br>"+
-  "\t\t}<br>"+
-	"\t}).start();<br>"+
+questions[21].question = "Why will not following code fail to compile?<br><br>"+
+"abstract class Block{<br>"+
+"}<br><br>"+
+"public class House{<br>"+
+	"\tpublic static void main(String[] args){<br>"+
+		"\t\tBlock b = new Block();<br>"+
+	"\t}<br>"+
+"}<br>"
+questions[21].choices[0] = "Block can not be instantiated.";
+questions[21].choices[1] = "The Block constructor needs a parameter.";
+questions[21].choices[2] = "The Block class needs at least one method.";
+questions[21].choices[3] = "The House class must extend Block.";
+questions[21].choices[4] = "The code should compile fine.";
+questions[21].correctAnswer = 0;
+    
+questions[22] = new Question();
+questions[22].question = "Why will not following code fail to compile?<br><br>"+
+"abstract class Building{<br>"+
+  "\t//code<br>"+
+"}<br><br>"+
+  "class Tower extends Building{<br>"+
+  "\t//code<br>"+
+"}<br><br>"+
+"public class BuildingBuilder{<br>"+
+	"\tpublic static void main(String[] args){<br>"+
+		"\t\tBuilding eiffelTower = new Tower();<br>"+
+		"\t\tnew BuildingBuilder().constructBuilding(eiffelTower);<br>"+
+	"\t}<br><br>"+
+	"\tpublic constructBuilding(Building b){<br>"+
+	  "\t\t//some code<br>"+ 
+	"\t}<br>"+
 "}";
-questions[23].choices[0] = "9";
-questions[23].choices[1] = "10";
-questions[23].choices[2] = "11";
-questions[23].choices[3] = "0";
-questions[23].choices[4] = "1,000,000";
-questions[23].correctAnswer = 2;  
-questions[24] = new Question();
+questions[22].choices[0] = "Tower can not be instantiated.";
+questions[22].choices[1] = "The Tower constructor needs a parameter.";
+questions[22].choices[2] = "constructBuilding cannot take a Building object as a parameter.";
+questions[22].choices[3] = "The BuildingBuilder class must extend Building.";
+questions[22].choices[4] = "The code should compile fine.";
+questions[22].correctAnswer = 4;
+    
+    questions[23] = new Question();
+questions[23].question = "Which of the following is NOT a true statement?";
+questions[23].choices[0] = "Interfaces can only have abstract methods.";
+questions[23].choices[1] = "Abstract classes can have non-abstract methods.";
+questions[23].choices[2] = "A class can only extend one abstract class.";
+questions[23].choices[3] = "A class can only implement one interface.";
+questions[23].choices[4] = "An interface cannot have any private methods.";
+questions[23].correctAnswer = 3;
+	  
+    questions[24] = new Question();
 questions[24].question = "Which line of code properly creates and initializes a new Thread object?";
 questions[24].choices[0] = "Thread&ltString> myThread = new Thread&ltString>();";
 questions[24].choices[1] = "Thread myThread;";
@@ -301,14 +315,18 @@ questions[27].correctAnswer = 4;
     questions[28] = new Question();
 questions[28].question = "Which thread will finish running its code first?<br><br>"+
 "Thread t1 = new Thread(new Runnable(){<br>"+
-	"\tfor(int i = 0; i < 1000000; i++){<br>"+
-		"\t\tSystem.out.println(i);<br>"+
-	"\t}<br>"+
+  "\tpublic void run(){}<br>"+
+	"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
+		"\t\t\tSystem.out.println(i);<br>"+
+	"\t\t}<br>"+
+  "\t}<br>"+
 "});<br><br>"+
 "Thread t2 = new Thread(new Runnnable(){<br>"+
-	"\tfor(int i = 0; i < 1000000; i++){<br>"+
-		"\t\tSystem.out.println(i);<br>"+
-	"\t}<br>"+
+  "\tpublic void run(){<br>"+
+	"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
+		"\t\t\tSystem.out.println(i);<br>"+
+	"\t\t}<br>"+
+  "\t}<br>"+
 "});<br><br>"+
 "t1.start();<br>"+
 "t2.start();"
@@ -322,9 +340,11 @@ questions[29] = new Question();
 questions[29].question = "How many threads (including the main thread) are running simultaneously at the end of the following code segment?<br><br>"+
 "for(int i = 0; i < 10; i++){<br>"+
 	"\tnew Thread(new Runnnable(){<br>"+
-		"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
-			"\t\t\tSystem.out.println(i);<br>"+
-		"\t\t}<br>"+
+  "\t\tpublic void run(){<br>" +
+		"\t\t\tfor(int i = 0; i < 1000000; i++){<br>"+
+			"\t\t\t\tSystem.out.println(i);<br>"+
+		"\t\t\t}<br>"+
+  "\t\t}<br>"+
 	"\t}).start();<br>"+
 "}";
 questions[29].choices[0] = "9";
@@ -333,6 +353,73 @@ questions[29].choices[2] = "11";
 questions[29].choices[3] = "0";
 questions[29].choices[4] = "1,000,000";
 questions[29].correctAnswer = 2;  
+questions[30] = new Question();
+questions[30].question = "Which line of code properly creates and initializes a new Thread object?";
+questions[30].choices[0] = "Thread&ltString> myThread = new Thread&ltString>();";
+questions[30].choices[1] = "Thread myThread;";
+questions[30].choices[2] = "Thread myThread = new Thread();";
+questions[30].choices[3] = "Thread myThread = new Thread(new Runnable());";
+questions[30].choices[4] = "Thread myThread = new Runnable();";
+questions[30].correctAnswer = 2;
+questions[31] = new Question();
+questions[31].question = "What method of the Thread class allows a thread to begin running its code?";
+questions[31].choices[0] = "begin";
+questions[31].choices[1] = "start";
+questions[31].choices[2] = "stop";
+questions[31].choices[3] = "run";
+questions[31].choices[4] = "startThread";
+questions[31].correctAnswer = 1;
+questions[32] = new Question();
+questions[32].question = "Which method from the Runnable interface must be overridden?";
+questions[32].choices[0] = "run";
+questions[32].choices[1] = "start";
+questions[32].choices[2] = "override";
+questions[32].choices[3] = "execute";
+questions[32].choices[4] = "runnable";
+questions[32].correctAnswer = 0;
+questions[33] = new Question();
+questions[33].question = "What method allows one thread to wait for the completion of another thread?";
+questions[33].choices[0] = "wait";
+questions[33].choices[1] = "pause";
+questions[33].choices[2] = "sleep";
+questions[33].choices[3] = "execute";
+questions[33].choices[4] = "join";
+questions[33].correctAnswer = 4; 
+    questions[34] = new Question();
+questions[34].question = "Which thread will finish running its code first?<br><br>"+
+"Thread t1 = new Thread(new Runnable(){<br>"+
+	"\tfor(int i = 0; i < 1000000; i++){<br>"+
+		"\t\tSystem.out.println(i);<br>"+
+	"\t}<br>"+
+"});<br><br>"+
+"Thread t2 = new Thread(new Runnnable(){<br>"+
+	"\tfor(int i = 0; i < 1000000; i++){<br>"+
+		"\t\tSystem.out.println(i);<br>"+
+	"\t}<br>"+
+"});<br><br>"+
+"t1.start();<br>"+
+"t2.start();"
+questions[34].choices[0] = "t1 will finish first.";
+questions[34].choices[1] = "t2 will finish first.";
+questions[34].choices[2] = "They will finish at the same time.";
+questions[34].choices[3] = "It is impossible to know which thread will finish first.";
+questions[34].choices[4] = "Neither thread will finish because an error will occur.";
+questions[34].correctAnswer = 3;
+questions[35] = new Question();
+questions[35].question = "How many threads (including the main thread) are running simultaneously at the end of the following code segment?<br><br>"+
+"for(int i = 0; i < 10; i++){<br>"+
+	"\tnew Thread(new Runnnable(){<br>"+
+		"\t\tfor(int i = 0; i < 1000000; i++){<br>"+
+			"\t\t\tSystem.out.println(i);<br>"+
+		"\t\t}<br>"+
+	"\t}).start();<br>"+
+"}";
+questions[35].choices[0] = "9";
+questions[35].choices[1] = "10";
+questions[35].choices[2] = "11";
+questions[35].choices[3] = "0";
+questions[35].choices[4] = "1,000,000";
+questions[35].correctAnswer = 2;  
     setDivText(questions[0]);
     setButtons(questions[0]);
   }
