@@ -1,391 +1,389 @@
 <head>
-  <h1 align="center">QUIZ</h1>
+   <h1 align="center">QUIZ</h1>
 </head>
-
 <body onload="startup()" style="background-color:lightblue">
-  <pre><code>
+   <pre><code>
   <div id="docBody" style="font-size:22px;">
     
 </div>
 </code></pre>
 </body>
-
 <script>
-  function Question(){
-    this.question = "";
-    this.choices = [];
-    this.correctAnswer = "";
-    this.userAnswer = "";
-    this.visited = false;
-  }
-  
-  var body;
-  
-  var questions = [];
-  
-  var currentQuestion;
-    
-  function startup(){
-    currentQuestion = 0;
-    
-    body = document.getElementById("docBody");
-    
-    questions[0] = new Question();
-questions[0].question = "How many times will ole! print to the screen when the following code runs?\n\npublic class MyJavaProgram{\n  public static void main(String[] args){\n    for(int i = 0; i <= 12; i++){\n      if(i % 2 == 0){\n        System.out.println(\"ole!\");\n      }\n    }\n  }\n}";
-questions[0].choices[0] = "0";
-questions[0].choices[1] = "2";
-questions[0].choices[2] = "6";
-questions[0].choices[3] = "7";
-questions[0].choices[4] = "12";
-questions[0].correctAnswer = 3;
-questions[1] = new Question();
-questions[1].question = "write a line of code to call the following method.\n\nvoid doMagic(){}";
-questions[1].correctAnswer = "doMagic();";
-questions[1].userAnswer = "";
-questions[2] = new Question();
-questions[2].question = "What would print to the screen after the following code executes?\n\nint i = 5;\n\nif(i < 10){\n  System.out.println(\"Success\");\n}else if(i == 5){\n  System.out.println(\"Failure\");\n}";
-questions[2].correctAnswer = "Success";
-questions[2].userAnswer = "";
-questions[3] = new Question();
-questions[3].question = "Which line of code contains an error?\n\n1: int x = 5;\n2: int y = 2;\n3:\n4: if(x > 0){\n5:   x = 0;\n6: }\n7: else if(y = 2){\n8:   y = 0;\n9: }";
-questions[3].choices[0] = "1";
-questions[3].choices[1] = "4";
-questions[3].choices[2] = "5";
-questions[3].choices[3] = "7";
-questions[3].choices[4] = "There are no errors.";
-questions[3].correctAnswer = 3;
-questions[4] = new Question();
-questions[4].question = "What is the value of x after the following code executes?\n\nint x = 7;\n\nif(x == 0){\n  x = 10;\n}else if(x < 5){\n  x = 11;\n}else{\n  x = 12;\n}";
-questions[4].choices[0] = "7";
-questions[4].choices[1] = "0";
-questions[4].choices[2] = "5";
-questions[4].choices[3] = "10";
-questions[4].choices[4] = "12";
-questions[4].correctAnswer = 4;
-questions[5] = new Question();
-questions[5].question = "What is the value of sushi after the following code executes?\n\nint sushi = 3;\n\nif(sushi == 3){\n  sushi = 5;\n} \nif(sushi == 5){\n  sushi = 7;\n}\nif(sushi == 7){\n  x = 7;\n}\n\nsushi = 9;";
-questions[5].choices[0] = "9";
-questions[5].choices[1] = "7";
-questions[5].choices[2] = "5";
-questions[5].choices[3] = "3";
-questions[5].choices[4] = "0";
-questions[5].correctAnswer = 0;
-questions[6] = new Question();
-questions[6].question = "What is the value of port after the following code executes?\n\nString port = \"\";\n\nfor(int i = 0; i < 3; i++){\n  port = port + i;\n}";
-questions[6].choices[0] = "123";
-questions[6].choices[1] = "012";
-questions[6].choices[2] = "0";
-questions[6].choices[3] = "01210";
-questions[6].choices[4] = "12321";
-questions[6].correctAnswer = 1;
-questions[7] = new Question();
-questions[7].question = "What is the name of the following method?\n\nint getInformation(String filename){\n  //code\n}";
-questions[7].correctAnswer = "getInformation";
-questions[7].userAnswer = "";
-questions[8] = new Question();
-questions[8].question = "What is the output of this code?\n\nint x = 5;\n\nif(x < 10)\n{\n    System.out.println(“JUMP!”);\n}\nelse\n{\n    System.out.println(“DUCK!”);\n}";
-questions[8].choices[0] = "JUMP!";
-questions[8].choices[1] = "DUCK!";
-questions[8].choices[2] = "JUMP!\nDUCK!";
-questions[8].choices[3] = "JUMP!DUCK!";
-questions[8].choices[4] = "(nothing)";
-questions[8].correctAnswer = 0;
-questions[9] = new Question();
-questions[9].question = "A placeholder for information is a(n) ____________.";
-questions[9].choices[0] = "data stream";
-questions[9].choices[1] = "method";
-questions[9].choices[2] = "variable";
-questions[9].choices[3] = "main";
-questions[9].choices[4] = "exection";
-questions[9].correctAnswer = 2;
-questions[10] = new Question();
-questions[10].question = "Which method call will draw a box in the top left corner of a window?";
-questions[10].choices[0] = "rect(0, 0, 100, 100);";
-questions[10].choices[1] = "rect(45, 45, 100, 100);";
-questions[10].choices[2] = "rect(x, y, 100, 100);";
-questions[10].choices[3] = "rect(0, 100, 100, 100);";
-questions[10].choices[4] = "rect(WIDTH, HEIGHT, 100, 100);";
-questions[10].correctAnswer = 0;
-questions[11] = new Question();
-questions[11].question = "What is the height of the following box?\n\nrect(0, 0, 200, 300);";
-questions[11].correctAnswer = "300";
-questions[11].userAnswer = "";
-questions[12] = new Question();
-questions[12].question = "What is the largest number that the variable num can possibly be?\n\nRandom rand = new Random();\nint num = rand.nextInt(100);";
-questions[12].correctAnswer = "99";
-questions[12].userAnswer = "";
-questions[13] = new Question();
-questions[13].question = "Which block of code will make the Robot draw a square?";
-questions[13].choices[0] = "Robot rob = new Robot();\n\nrob.move(10);\nrob.turn(10);\nrob.move(10);\nrob.turn(10);\nrob.move(10);\nrob.turn(10);\nrob.move(10);\nrob.turn(10);";
-questions[13].choices[1] = "Robot rob = new Robot();\n\nfor(int i = 0; i < 4; i++){\n  rob.move(100);\n}";
-questions[13].choices[2] = "Robot rob = new Robot();\n\nrob.drawSquare();";
-questions[13].choices[3] = "Robot rob = new Robot();\n\nrob.rect(0, 0, 200, 200);";
-questions[13].choices[4] = "Robot rob = new Robot();\n\nfor(int i = 0; i < 4; i++){\n  rob.move(100);\n  rob.turn(90);\n}";
-questions[13].correctAnswer = 4;
-questions[14] = new Question();
-questions[14].question = "What is the value of superCode after this code executes?\n\nString superCode = \"\";\nsuperCode = \"123456\";";
-questions[14].correctAnswer = "123456";
-questions[14].userAnswer = "";
-    
-questions[15] = new Question();
-questions[15].question = "class Computer{\n  String type;\n  int ramInMB;\n  public Computer(String type, int ramInMB){\n    this.type = type;\n    this.ramInMB = ramInMB;\n  }\n}\n\nUsing the Computer class above, fill in the blank to create a Computer object with a type of \"i386\" and 64 MB of ram.\n\nComputer i386 = _________________________";
-questions[15].correctAnswer = "new Computer(\"i386\", 64);";
-questions[15].userAnswer = "";
-questions[16] = new Question();
-questions[16].question = "How can you tell that a method is a constructor?";
-questions[16].choices[0] = "It does not have public or private.";
-questions[16].choices[1] = "It always returns void.";
-questions[16].choices[2] = "It does not have a return type.";
-questions[16].choices[3] = "The name starts with either get or set.";
-questions[16].choices[4] = "It has the word new in the body of the method.";
-questions[16].correctAnswer = 2;
-questions[17] = new Question();
-questions[17].question = "What is the return type of this method?\n\npublic static void calcStats(int s, double f){\n  //code goes here\n}";
-questions[17].choices[0] = "public";
-questions[17].choices[1] = "String";
-questions[17].choices[2] = "static";
-questions[17].choices[3] = "int";
-questions[17].choices[4] = "void";
-questions[17].correctAnswer = 4;
-questions[18] = new Question();
-questions[18].question = "When a new Game object is created, what is the value of h on line 7?\n\n1.  public class Game{\n2.    public Game(){\n3.      setWindow(700, 450);\n4.    }\n5.\n6.    private setWindow(int w, int h){\n7.      createGameWindow(w, h);\n8.    }\n9.  }";
-questions[18].correctAnswer = "450";
-questions[18].userAnswer = "";
-questions[19] = new Question();
-questions[19].question = "How many times will OUTPUT print after the following code executes?\n\nfor(int i = 0; i < 5; i ++){\n  for(int j = 0; j < 5; j++){\n    System.out.println(\"OUTPUT\");\n  }\n}";
-questions[19].correctAnswer = "25";
-questions[19].userAnswer = "";
-questions[20] = new Question();
-questions[20].question = "Canvas backdrop = new Canvas(200, 150, 25, 0);\n\nHow many parameters does the constructor for the Canvas class take?";
-questions[20].correctAnswer = "4";
-questions[20].userAnswer = "";
-questions[21] = new Question();
-questions[21].question = "15 % 4 = ___";
-questions[21].choices[0] = "0";
-questions[21].choices[1] = "1";
-questions[21].choices[2] = "3";
-questions[21].choices[3] = "4";
-questions[21].choices[4] = "3.75";
-questions[21].correctAnswer = 2;
-questions[22] = new Question();
-questions[22].question = "public class Printer{\n  public void print(){\n    System.out.println(\"PRINTING\");\n  }\n}\n\nUsing the Printer class above, what would be the output if the following code was executed inside the main method?\n\nPrinter p;\nfor(int i = 0; i < 3; i++){\n  p.print();\n}";
-questions[22].choices[0] = "no output";
-questions[22].choices[1] = "PRINTING";
-questions[22].choices[2] = "PRINTING\nPRINTING\nPRINTING";
-questions[22].choices[3] = "an error would occur";
-questions[22].choices[4] = "PRINTINGPRINTINGPRINTING";
-questions[22].correctAnswer = 3;
-questions[23] = new Question();
-questions[23].question = "How many times will the following loop run its code?\n\nfor(int x = 25, y = 0; y < x; y += 5){\n  //code\n}";
-questions[23].correctAnswer = "5";
-questions[23].userAnswer = "";
-questions[24] = new Question();
-questions[24].question = "class Button{\n  public void press(){\n    new Button().press();\n  }\n}\n\nUsing the Button class above, will the following line compile?\n\nButton b = new Button();\nb.press();";
-questions[24].choices[0] = "Yes";
-questions[24].choices[1] = "No";
-questions[24].choices[2] = "(don't choose this one)";
-questions[24].choices[3] = "(don't choose this one)";
-questions[24].choices[4] = "(don't choose this one)";
-questions[24].correctAnswer = 0;
-questions[25] = new Question();
-questions[25].question = "Match the appropriate data types to their variables.\n\n___ w = -17;\n___ x = 4.2565723484;\n___ y = 'A';\n___ z = true;";
-questions[25].choices[0] = "float w\ndouble w\nchar y\nboolean z";
-questions[25].choices[1] = "int w\ndouble x\nchar y\nboolean z ";
-questions[25].choices[2] = "int w\ndouble x\nString y\nboolean z";
-questions[25].choices[3] = "int w\ndouble x\nchar y\nString z";
-questions[25].choices[4] = "int w\nfloat x\nString y\nboolean z";
-questions[25].correctAnswer = 1;    
-questions[26] = new Question();
-questions[26].question = "public class AnimationPanel extends Panel{\n\n}\n\nWhat does adding \"extends Panel\" do for the AnimationPanel class?";
-questions[26].choices[0] = "It makes it so that AnimationPanel requires more typing to complete its tasks. ";
-questions[26].choices[1] = "It gives the AnimationPanel class access to all of the methods and member variables of the Panel class.";
-questions[26].choices[2] = "nothing";
-questions[26].choices[3] = "It would cause an error.";
-questions[26].choices[4] = "It makes it so that any object of the AnimationPanel class can be used in the same way as an object of the Panel class.";
-questions[26].correctAnswer = 4;
-questions[27] = new Question();
-questions[27].question = "How many objects of the Random class are created when the following code executes?\n\nfor(int i = 0; i < 10; i++){\n  if(i % 3 == 0){\n    Random r = new Random();\n  }\n}";
-questions[27].correctAnswer = "4";
-questions[27].userAnswer = "";
-questions[28] = new Question();
-questions[28].question = "What is the value of copy after the following code executes?\n\nString original = \"STRING\";\nString copy = \"\";\n\nfor(int i = original.length() - 1; i >= 0; i--){\n  copy += original.charAt(i);\n}";
-questions[28].choices[0] = "STRING";
-questions[28].choices[1] = "(blank string)";
-questions[28].choices[2] = "STRINGSTRING";
-questions[28].choices[3] = "GNIRTS";
-questions[28].choices[4] = "SGTNRI";
-questions[28].correctAnswer = 3;
-questions[29] = new Question();
-questions[29].question = "Which Java keyword is required to call a constructor?";
-questions[29].choices[0] = "return";
-questions[29].choices[1] = "new";
-questions[29].choices[2] = "final";
-questions[29].choices[3] = "int";
-questions[29].choices[4] = "void";
-questions[29].correctAnswer = 1;
-questions[30] = new Question();
-questions[30].question = "What are the values of h1 and h2 after this code executes?\n\nint h1 = 70;\nint h2 = 72;\n\nif(h1 < h2){\n  int t = h2;\n  h2 = h1;\n  h1 = t;\n}";
-questions[30].choices[0] = "h1 = 72;\nh2 = 70;";
-questions[30].choices[1] = "h1 = 70;\nh2 = 72;";
-questions[30].choices[2] = "h1 = 72;\nh2 = 72;";
-questions[30].choices[3] = "h1 = 70;\nh2 = 70;";
-questions[30].choices[4] = "h1 = 0;\nh2 = 0;";
-questions[30].correctAnswer = 0;
-questions[31] = new Question();
-questions[31].question = "Which direction will the rectangle move when the following Processing sketch is running?\n\nint x = 250;\nint y = 250;\n\nvoid setup(){\n  size(500, 500);\n}\n\nvoid draw(){\n  rect(x++, y++, 200, 200);\n}\n";
-questions[31].choices[0] = "up and to the left";
-questions[31].choices[1] = "down and to the left";
-questions[31].choices[2] = "up and to the right";
-questions[31].choices[3] = "down and to the right";
-questions[31].choices[4] = "It will not move.";
-questions[31].correctAnswer = 3;
-questions[32] = new Question();
-questions[32].question = "What is the value of x after the following code executes?\n\npublic class MyProgram{\n  public static void main(String[] args){\n    int x = startup(-4);\n  }\n\n  static int startup(int v){\n    return v % 4;\n  }\n}";
-questions[32].choices[0] = "0";
-questions[32].choices[1] = "1";
-questions[32].choices[2] = "2";
-questions[32].choices[3] = "3";
-questions[32].choices[4] = "4";
-questions[32].correctAnswer = 0;
-questions[33] = new Question();
-questions[33].question = "What is printed when the following code executes?\n\nString code = \"8675309\";\nSystem.out.println(code.length());\n";
-questions[33].correctAnswer = "7";
-questions[33].userAnswer = "";
-questions[34] = new Question();
-questions[34].question = "What is printed when the following code executes?\n\nString s1 = \"SUBWAY\";\nString s2 = s1.substring(0, 3);\nSystem.out.println(s2);";
-questions[34].correctAnswer = "SUB";
-questions[34].userAnswer = "";  
-    
-    setDivText(questions[0]);
-    setButtons(questions[0]);
-  }
-  
-  function setDivText(q){
-    body.innerHTML += currentQuestion + 1 + ". ";
-    body.innerHTML += q.question + "<br><br><hr size=\"1\">";
-    
-    if(q.choices.length == 0){
-      body.innerHTML += "<br><textarea id=\"answer\" rows=\"10\" cols=\"80\">" +
-                         q.userAnswer + "</textarea><br>"; 
-    }else{
-      for(var i = 0; i < q.choices.length; i++){
-        if(i == q.userAnswer && q.visited){
-          body.innerHTML += convertChar(i) + "<input type=\"radio\" checked=\"true\"name=\"answer\" id=\"" + i + "\">" +q.choices[i] + "</input><br><br>";
-        }else{
-          body.innerHTML += "<input type=\"radio\" name=\"answer\" id=\"" + i + "\"><br>" +q.choices[i] + "</input><br><hr size=\"1\">";
-        }
-      }
-      
-      q.visited = true;
-    }
-  }
-  
-  function convertChar(a){
-    switch(a){
-        case 0: 
-        case "0": return "A";
-        case 1: 
-        case "1": return "B";
-        case 2: 
-        case "2": return "C";
-        case 3: 
-        case "3": return "D";
-        case 4: 
-        case "4": return "E";
-    }
-  }
-  
-  function setButtons(q){
-    if(q == questions[0]){
-      if(questions.length > 1){
-        body.innerHTML += "<button onclick=\"nextQuestion()\">NEXT</button>";
-      }else{
-        body.innerHTML += "<button onclick=\"submit()\">SUBMIT</button>";
-      }
-    } 
-    else if(q == questions[questions.length - 1]){
-      body.innerHTML += "<button onclick=\"previousQuestion()\">PREVIOUS</button>";
-      body.innerHTML += "<button onclick=\"submit()\">SUBMIT</button>";
-    }else{
-      body.innerHTML += "<button onclick=\"previousQuestion()\">PREVIOUS</button>";
-      body.innerHTML += "<button onclick=\"nextQuestion()\">NEXT</button>";
-    }
-  }
-  
-  function nextQuestion(){
-    if(setUserAnswer()){
-      body.innerHTML = "";
-    	currentQuestion++;
-    	setDivText(questions[currentQuestion]);
-    	setButtons(questions[currentQuestion]);
-    }
-  }
-  
-  function previousQuestion(){
-    if(setUserAnswer()){
-      body.innerHTML = "";
-    	currentQuestion--;
-    	setDivText(questions[currentQuestion]);
-    	setButtons(questions[currentQuestion]);
-    }
-  }
-  
-  function setUserAnswer(){
-    var q = questions[currentQuestion];
-    
-    if(q.choices.length > 0){
-      try{
-     		q.userAnswer = document.querySelector('input[name="answer"]:checked').id;
-        return true;
-      }catch(err){
-        alert("Please make a choice. You can come back and change it later.");
-        return false;
-      }
-    }else{
-      q.userAnswer = document.getElementById("answer").value.trim();
-      return true;
-    }
-  }
-  
-  function checkQuiz(){
-    var total = 0;
-    for(var i = 0; i < questions.length; i++){
-      var q = questions[i];
-      if(q.choices.length == 0){
-        if(q.userAnswer.trim() == q.correctAnswer){
-          total++;
-        }
-      } else {
-        if(q.correctAnswer == q.userAnswer){
-          total++;
-        }
-      }
-    }
-    return total;
-  }
-  
-  function submit(){
-    setUserAnswer();
-    
-    body.innerHTML = "You got " + checkQuiz() + " out of " + questions.length + " correct.<br><hr size=\"3\">";
-    for(var i = 0; i < questions.length; i++){
-      if(questions[i].choices.length > 0){
-        body.innerHTML += i + 1 + ". ";
-        body.innerHTML += questions[i].question + "<br><br>";
-        body.innerHTML += "Your Answer: <br>";
-        body.innerHTML += convertChar(questions[i].userAnswer) + "<br>";
-        body.innerHTML += "Correct Answer: <br>";
-        body.innerHTML += convertChar(questions[i].correctAnswer) + "<br>";
-        body.innerHTML += "<hr size=\"3\">";
-      }else{
-        body.innerHTML += i + 1 + ". ";
-        body.innerHTML += questions[i].question + "<br><br>";
-        body.innerHTML += "Your Answer: <br>";
-        body.innerHTML += questions[i].userAnswer + "<br>";
-        body.innerHTML += "Correct Answer: <br>";
-        body.innerHTML += questions[i].correctAnswer + "<br>";
-        body.innerHTML += "<hr size=\"3\">";
-      }
-    }
-  }
+   function Question(){
+     this.question = "";
+     this.choices = [];
+     this.correctAnswer = "";
+     this.userAnswer = "";
+     this.visited = false;
+   }
+   
+   var body;
+   
+   var questions = [];
+   
+   var currentQuestion;
+     
+   function startup(){
+     currentQuestion = 0;
+     
+     body = document.getElementById("docBody");
+     
+     questions[0] = new Question();
+   questions[0].question = "How many times will ole! print to the screen when the following code runs?\n\npublic class MyJavaProgram{\n  public static void main(String[] args){\n    for(int i = 0; i <= 12; i++){\n      if(i % 2 == 0){\n        System.out.println(\"ole!\");\n      }\n    }\n  }\n}";
+   questions[0].choices[0] = "0";
+   questions[0].choices[1] = "2";
+   questions[0].choices[2] = "6";
+   questions[0].choices[3] = "7";
+   questions[0].choices[4] = "12";
+   questions[0].correctAnswer = 3;
+   questions[1] = new Question();
+   questions[1].question = "write a line of code to call the following method.\n\nvoid doMagic(){}";
+   questions[1].correctAnswer = "doMagic();";
+   questions[1].userAnswer = "";
+   questions[2] = new Question();
+   questions[2].question = "What would print to the screen after the following code executes?\n\nint i = 5;\n\nif(i < 10){\n  System.out.println(\"Success\");\n}else if(i == 5){\n  System.out.println(\"Failure\");\n}";
+   questions[2].correctAnswer = "Success";
+   questions[2].userAnswer = "";
+   questions[3] = new Question();
+   questions[3].question = "Which line of code contains an error?\n\n1: int x = 5;\n2: int y = 2;\n3:\n4: if(x > 0){\n5:   x = 0;\n6: }\n7: else if(y = 2){\n8:   y = 0;\n9: }";
+   questions[3].choices[0] = "1";
+   questions[3].choices[1] = "4";
+   questions[3].choices[2] = "5";
+   questions[3].choices[3] = "7";
+   questions[3].choices[4] = "There are no errors.";
+   questions[3].correctAnswer = 3;
+   questions[4] = new Question();
+   questions[4].question = "What is the value of x after the following code executes?\n\nint x = 7;\n\nif(x == 0){\n  x = 10;\n}else if(x < 5){\n  x = 11;\n}else{\n  x = 12;\n}";
+   questions[4].choices[0] = "7";
+   questions[4].choices[1] = "0";
+   questions[4].choices[2] = "5";
+   questions[4].choices[3] = "10";
+   questions[4].choices[4] = "12";
+   questions[4].correctAnswer = 4;
+   questions[5] = new Question();
+   questions[5].question = "What is the value of sushi after the following code executes?\n\nint sushi = 3;\n\nif(sushi == 3){\n  sushi = 5;\n} \nif(sushi == 5){\n  sushi = 7;\n}\nif(sushi == 7){\n  x = 7;\n}\n\nsushi = 9;";
+   questions[5].choices[0] = "9";
+   questions[5].choices[1] = "7";
+   questions[5].choices[2] = "5";
+   questions[5].choices[3] = "3";
+   questions[5].choices[4] = "0";
+   questions[5].correctAnswer = 0;
+   questions[6] = new Question();
+   questions[6].question = "What is the value of port after the following code executes?\n\nString port = \"\";\n\nfor(int i = 0; i < 3; i++){\n  port = port + i;\n}";
+   questions[6].choices[0] = "123";
+   questions[6].choices[1] = "012";
+   questions[6].choices[2] = "0";
+   questions[6].choices[3] = "01210";
+   questions[6].choices[4] = "12321";
+   questions[6].correctAnswer = 1;
+   questions[7] = new Question();
+   questions[7].question = "What is the name of the following method?\n\nint getInformation(String filename){\n  //code\n}";
+   questions[7].correctAnswer = "getInformation";
+   questions[7].userAnswer = "";
+   questions[8] = new Question();
+   questions[8].question = "What is the output of this code?\n\nint x = 5;\n\nif(x < 10)\n{\n    System.out.println(“JUMP!”);\n}\nelse\n{\n    System.out.println(“DUCK!”);\n}";
+   questions[8].choices[0] = "JUMP!";
+   questions[8].choices[1] = "DUCK!";
+   questions[8].choices[2] = "JUMP!\nDUCK!";
+   questions[8].choices[3] = "JUMP!DUCK!";
+   questions[8].choices[4] = "(nothing)";
+   questions[8].correctAnswer = 0;
+   questions[9] = new Question();
+   questions[9].question = "A placeholder for information is a(n) ____________.";
+   questions[9].choices[0] = "data stream";
+   questions[9].choices[1] = "method";
+   questions[9].choices[2] = "variable";
+   questions[9].choices[3] = "main";
+   questions[9].choices[4] = "exection";
+   questions[9].correctAnswer = 2;
+   questions[10] = new Question();
+   questions[10].question = "Which method call will draw a box in the top left corner of a window?";
+   questions[10].choices[0] = "rect(0, 0, 100, 100);";
+   questions[10].choices[1] = "rect(45, 45, 100, 100);";
+   questions[10].choices[2] = "rect(x, y, 100, 100);";
+   questions[10].choices[3] = "rect(0, 100, 100, 100);";
+   questions[10].choices[4] = "rect(WIDTH, HEIGHT, 100, 100);";
+   questions[10].correctAnswer = 0;
+   questions[11] = new Question();
+   questions[11].question = "What is the height of the following box?\n\nrect(0, 0, 200, 300);";
+   questions[11].correctAnswer = "300";
+   questions[11].userAnswer = "";
+   questions[12] = new Question();
+   questions[12].question = "What is the largest number that the variable num can possibly be?\n\nRandom rand = new Random();\nint num = rand.nextInt(100);";
+   questions[12].correctAnswer = "99";
+   questions[12].userAnswer = "";
+   questions[13] = new Question();
+   questions[13].question = "Which block of code will make the Robot draw a square?";
+   questions[13].choices[0] = "Robot rob = new Robot();\n\nrob.move(10);\nrob.turn(10);\nrob.move(10);\nrob.turn(10);\nrob.move(10);\nrob.turn(10);\nrob.move(10);\nrob.turn(10);";
+   questions[13].choices[1] = "Robot rob = new Robot();\n\nfor(int i = 0; i < 4; i++){\n  rob.move(100);\n}";
+   questions[13].choices[2] = "Robot rob = new Robot();\n\nrob.drawSquare();";
+   questions[13].choices[3] = "Robot rob = new Robot();\n\nrob.rect(0, 0, 200, 200);";
+   questions[13].choices[4] = "Robot rob = new Robot();\n\nfor(int i = 0; i < 4; i++){\n  rob.move(100);\n  rob.turn(90);\n}";
+   questions[13].correctAnswer = 4;
+   questions[14] = new Question();
+   questions[14].question = "What is the value of superCode after this code executes?\n\nString superCode = \"\";\nsuperCode = \"123456\";";
+   questions[14].correctAnswer = "123456";
+   questions[14].userAnswer = "";
+     
+   questions[15] = new Question();
+   questions[15].question = "class Computer{\n  String type;\n  int ramInMB;\n  public Computer(String type, int ramInMB){\n    this.type = type;\n    this.ramInMB = ramInMB;\n  }\n}\n\nUsing the Computer class above, fill in the blank to create a Computer object with a type of \"i386\" and 64 MB of ram.\n\nComputer i386 = _________________________";
+   questions[15].correctAnswer = "new Computer(\"i386\", 64);";
+   questions[15].userAnswer = "";
+   questions[16] = new Question();
+   questions[16].question = "How can you tell that a method is a constructor?";
+   questions[16].choices[0] = "It does not have public or private.";
+   questions[16].choices[1] = "It always returns void.";
+   questions[16].choices[2] = "It does not have a return type.";
+   questions[16].choices[3] = "The name starts with either get or set.";
+   questions[16].choices[4] = "It has the word new in the body of the method.";
+   questions[16].correctAnswer = 2;
+   questions[17] = new Question();
+   questions[17].question = "What is the return type of this method?\n\npublic static void calcStats(int s, double f){\n  //code goes here\n}";
+   questions[17].choices[0] = "public";
+   questions[17].choices[1] = "String";
+   questions[17].choices[2] = "static";
+   questions[17].choices[3] = "int";
+   questions[17].choices[4] = "void";
+   questions[17].correctAnswer = 4;
+   questions[18] = new Question();
+   questions[18].question = "When a new Game object is created, what is the value of h on line 7?\n\n1.  public class Game{\n2.    public Game(){\n3.      setWindow(700, 450);\n4.    }\n5.\n6.    private setWindow(int w, int h){\n7.      createGameWindow(w, h);\n8.    }\n9.  }";
+   questions[18].correctAnswer = "450";
+   questions[18].userAnswer = "";
+   questions[19] = new Question();
+   questions[19].question = "How many times will OUTPUT print after the following code executes?\n\nfor(int i = 0; i < 5; i ++){\n  for(int j = 0; j < 5; j++){\n    System.out.println(\"OUTPUT\");\n  }\n}";
+   questions[19].correctAnswer = "25";
+   questions[19].userAnswer = "";
+   questions[20] = new Question();
+   questions[20].question = "Canvas backdrop = new Canvas(200, 150, 25, 0);\n\nHow many parameters does the constructor for the Canvas class take?";
+   questions[20].correctAnswer = "4";
+   questions[20].userAnswer = "";
+   questions[21] = new Question();
+   questions[21].question = "15 % 4 = ___";
+   questions[21].choices[0] = "0";
+   questions[21].choices[1] = "1";
+   questions[21].choices[2] = "3";
+   questions[21].choices[3] = "4";
+   questions[21].choices[4] = "3.75";
+   questions[21].correctAnswer = 2;
+   questions[22] = new Question();
+   questions[22].question = "public class Printer{\n  public void print(){\n    System.out.println(\"PRINTING\");\n  }\n}\n\nUsing the Printer class above, what would be the output if the following code was executed inside the main method?\n\nPrinter p;\nfor(int i = 0; i < 3; i++){\n  p.print();\n}";
+   questions[22].choices[0] = "no output";
+   questions[22].choices[1] = "PRINTING";
+   questions[22].choices[2] = "PRINTING\nPRINTING\nPRINTING";
+   questions[22].choices[3] = "an error would occur";
+   questions[22].choices[4] = "PRINTINGPRINTINGPRINTING";
+   questions[22].correctAnswer = 3;
+   questions[23] = new Question();
+   questions[23].question = "How many times will the following loop run its code?\n\nfor(int x = 25, y = 0; y < x; y += 5){\n  //code\n}";
+   questions[23].correctAnswer = "5";
+   questions[23].userAnswer = "";
+   questions[24] = new Question();
+   questions[24].question = "class Button{\n  public void press(){\n    new Button().press();\n  }\n}\n\nUsing the Button class above, will the following line compile?\n\nButton b = new Button();\nb.press();";
+   questions[24].choices[0] = "Yes";
+   questions[24].choices[1] = "No";
+   questions[24].choices[2] = "(don't choose this one)";
+   questions[24].choices[3] = "(don't choose this one)";
+   questions[24].choices[4] = "(don't choose this one)";
+   questions[24].correctAnswer = 0;
+   questions[25] = new Question();
+   questions[25].question = "Match the appropriate data types to their variables.\n\n___ w = -17;\n___ x = 4.2565723484;\n___ y = 'A';\n___ z = true;";
+   questions[25].choices[0] = "float w\ndouble w\nchar y\nboolean z";
+   questions[25].choices[1] = "int w\ndouble x\nchar y\nboolean z ";
+   questions[25].choices[2] = "int w\ndouble x\nString y\nboolean z";
+   questions[25].choices[3] = "int w\ndouble x\nchar y\nString z";
+   questions[25].choices[4] = "int w\nfloat x\nString y\nboolean z";
+   questions[25].correctAnswer = 1;    
+   questions[26] = new Question();
+   questions[26].question = "public class AnimationPanel extends Panel{\n\n}\n\nWhat does adding \"extends Panel\" do for the AnimationPanel class?";
+   questions[26].choices[0] = "It makes it so that AnimationPanel requires more typing to complete its tasks. ";
+   questions[26].choices[1] = "It gives the AnimationPanel class access to all of the methods and member variables of the Panel class.";
+   questions[26].choices[2] = "nothing";
+   questions[26].choices[3] = "It would cause an error.";
+   questions[26].choices[4] = "It makes it so that any object of the AnimationPanel class can be used in the same way as an object of the Panel class.";
+   questions[26].correctAnswer = 4;
+   questions[27] = new Question();
+   questions[27].question = "How many objects of the Random class are created when the following code executes?\n\nfor(int i = 0; i < 10; i++){\n  if(i % 3 == 0){\n    Random r = new Random();\n  }\n}";
+   questions[27].correctAnswer = "4";
+   questions[27].userAnswer = "";
+   questions[28] = new Question();
+   questions[28].question = "What is the value of copy after the following code executes?\n\nString original = \"STRING\";\nString copy = \"\";\n\nfor(int i = original.length() - 1; i >= 0; i--){\n  copy += original.charAt(i);\n}";
+   questions[28].choices[0] = "STRING";
+   questions[28].choices[1] = "(blank string)";
+   questions[28].choices[2] = "STRINGSTRING";
+   questions[28].choices[3] = "GNIRTS";
+   questions[28].choices[4] = "SGTNRI";
+   questions[28].correctAnswer = 3;
+   questions[29] = new Question();
+   questions[29].question = "Which Java keyword is required to call a constructor?";
+   questions[29].choices[0] = "return";
+   questions[29].choices[1] = "new";
+   questions[29].choices[2] = "final";
+   questions[29].choices[3] = "int";
+   questions[29].choices[4] = "void";
+   questions[29].correctAnswer = 1;
+   questions[30] = new Question();
+   questions[30].question = "What are the values of h1 and h2 after this code executes?\n\nint h1 = 70;\nint h2 = 72;\n\nif(h1 < h2){\n  int t = h2;\n  h2 = h1;\n  h1 = t;\n}";
+   questions[30].choices[0] = "h1 = 72;\nh2 = 70;";
+   questions[30].choices[1] = "h1 = 70;\nh2 = 72;";
+   questions[30].choices[2] = "h1 = 72;\nh2 = 72;";
+   questions[30].choices[3] = "h1 = 70;\nh2 = 70;";
+   questions[30].choices[4] = "h1 = 0;\nh2 = 0;";
+   questions[30].correctAnswer = 0;
+   questions[31] = new Question();
+   questions[31].question = "Which direction will the rectangle move when the following Processing sketch is running?\n\nint x = 250;\nint y = 250;\n\nvoid setup(){\n  size(500, 500);\n}\n\nvoid draw(){\n  rect(x++, y++, 200, 200);\n}\n";
+   questions[31].choices[0] = "up and to the left";
+   questions[31].choices[1] = "down and to the left";
+   questions[31].choices[2] = "up and to the right";
+   questions[31].choices[3] = "down and to the right";
+   questions[31].choices[4] = "It will not move.";
+   questions[31].correctAnswer = 3;
+   questions[32] = new Question();
+   questions[32].question = "What is the value of x after the following code executes?\n\npublic class MyProgram{\n  public static void main(String[] args){\n    int x = startup(-4);\n  }\n\n  static int startup(int v){\n    return v % 4;\n  }\n}";
+   questions[32].choices[0] = "0";
+   questions[32].choices[1] = "1";
+   questions[32].choices[2] = "2";
+   questions[32].choices[3] = "3";
+   questions[32].choices[4] = "4";
+   questions[32].correctAnswer = 0;
+   questions[33] = new Question();
+   questions[33].question = "What is printed when the following code executes?\n\nString code = \"8675309\";\nSystem.out.println(code.length());\n";
+   questions[33].correctAnswer = "7";
+   questions[33].userAnswer = "";
+   questions[34] = new Question();
+   questions[34].question = "What is printed when the following code executes?\n\nString s1 = \"SUBWAY\";\nString s2 = s1.substring(0, 3);\nSystem.out.println(s2);";
+   questions[34].correctAnswer = "SUB";
+   questions[34].userAnswer = "";  
+     
+     setDivText(questions[0]);
+     setButtons(questions[0]);
+   }
+   
+   function setDivText(q){
+     body.innerHTML += currentQuestion + 1 + ". ";
+     body.innerHTML += q.question + "<br><br><hr size=\"1\">";
+     
+     if(q.choices.length == 0){
+       body.innerHTML += "<br><textarea id=\"answer\" rows=\"10\" cols=\"80\">" +
+                          q.userAnswer + "</textarea><br>"; 
+     }else{
+       for(var i = 0; i < q.choices.length; i++){
+         if(i == q.userAnswer && q.visited){
+           body.innerHTML += convertChar(i) + "<input type=\"radio\" checked=\"true\"name=\"answer\" id=\"" + i + "\">" +q.choices[i] + "</input><br><br>";
+         }else{
+           body.innerHTML += "<input type=\"radio\" name=\"answer\" id=\"" + i + "\"><br>" +q.choices[i] + "</input><br><hr size=\"1\">";
+         }
+       }
+       
+       q.visited = true;
+     }
+   }
+   
+   function convertChar(a){
+     switch(a){
+         case 0: 
+         case "0": return "A";
+         case 1: 
+         case "1": return "B";
+         case 2: 
+         case "2": return "C";
+         case 3: 
+         case "3": return "D";
+         case 4: 
+         case "4": return "E";
+     }
+   }
+   
+   function setButtons(q){
+     if(q == questions[0]){
+       if(questions.length > 1){
+         body.innerHTML += "<button onclick=\"nextQuestion()\">NEXT</button>";
+       }else{
+         body.innerHTML += "<button onclick=\"submit()\">SUBMIT</button>";
+       }
+     } 
+     else if(q == questions[questions.length - 1]){
+       body.innerHTML += "<button onclick=\"previousQuestion()\">PREVIOUS</button>";
+       body.innerHTML += "<button onclick=\"submit()\">SUBMIT</button>";
+     }else{
+       body.innerHTML += "<button onclick=\"previousQuestion()\">PREVIOUS</button>";
+       body.innerHTML += "<button onclick=\"nextQuestion()\">NEXT</button>";
+     }
+   }
+   
+   function nextQuestion(){
+     if(setUserAnswer()){
+       body.innerHTML = "";
+     	currentQuestion++;
+     	setDivText(questions[currentQuestion]);
+     	setButtons(questions[currentQuestion]);
+     }
+   }
+   
+   function previousQuestion(){
+     if(setUserAnswer()){
+       body.innerHTML = "";
+     	currentQuestion--;
+     	setDivText(questions[currentQuestion]);
+     	setButtons(questions[currentQuestion]);
+     }
+   }
+   
+   function setUserAnswer(){
+     var q = questions[currentQuestion];
+     
+     if(q.choices.length > 0){
+       try{
+      		q.userAnswer = document.querySelector('input[name="answer"]:checked').id;
+         return true;
+       }catch(err){
+         alert("Please make a choice. You can come back and change it later.");
+         return false;
+       }
+     }else{
+       q.userAnswer = document.getElementById("answer").value.trim();
+       return true;
+     }
+   }
+   
+   function checkQuiz(){
+     var total = 0;
+     for(var i = 0; i < questions.length; i++){
+       var q = questions[i];
+       if(q.choices.length == 0){
+         if(q.userAnswer.trim() == q.correctAnswer){
+           total++;
+         }
+       } else {
+         if(q.correctAnswer == q.userAnswer){
+           total++;
+         }
+       }
+     }
+     return total;
+   }
+   
+   function submit(){
+     setUserAnswer();
+     
+     body.innerHTML = "You got " + checkQuiz() + " out of " + questions.length + " correct.<br><hr size=\"3\">";
+     for(var i = 0; i < questions.length; i++){
+       if(questions[i].choices.length > 0){
+         body.innerHTML += i + 1 + ". ";
+         body.innerHTML += questions[i].question + "<br><br>";
+         body.innerHTML += "Your Answer: <br>";
+         body.innerHTML += convertChar(questions[i].userAnswer) + "<br>";
+         body.innerHTML += "Correct Answer: <br>";
+         body.innerHTML += convertChar(questions[i].correctAnswer) + "<br>";
+         body.innerHTML += "<hr size=\"3\">";
+       }else{
+         body.innerHTML += i + 1 + ". ";
+         body.innerHTML += questions[i].question + "<br><br>";
+         body.innerHTML += "Your Answer: <br>";
+         body.innerHTML += questions[i].userAnswer + "<br>";
+         body.innerHTML += "Correct Answer: <br>";
+         body.innerHTML += questions[i].correctAnswer + "<br>";
+         body.innerHTML += "<hr size=\"3\">";
+       }
+     }
+   }
 </script>
